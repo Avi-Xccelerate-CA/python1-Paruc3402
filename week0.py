@@ -10,9 +10,31 @@
 # expected output: [(25,0),(0,0),(25,0),(0,0),(0,0),(0,0)]
 # input: [500, 1, 2, 3, 4, 5]
 #expected output: "No medicine given"
-# HINT: using % operator to find remainder may be helpful
+# # HINT: using % operator to find remainder may be helpful
+
+#YOUR SOLUTION STARTS HERE
 def dose(needs):
-    #YOUR SOLUTION STARTS HERE
+    total_needs = sum(needs)
 
-    #YOUR SOLUTION ENDS HERE
+    if total_needs > 500:
+            return "No medicine given"
+    
+    medicine_list = []
+    vitamins = 0
+    attribute = 0
+    for attribute in needs:
+        if attribute >= 250:
+              return "No medicine given"
+        vitamins = attribute // 10
 
+        if attribute % 10 !=0:
+            vitamins += 1
+            injections = vitamins*10 - attribute
+        else:
+                injections = 0
+        print(injections, vitamins)
+        medicine_list.append((vitamins, injections))
+    return medicine_list
+#     #YOUR SOLUTION ENDS HERE
+print(dose([250, 0, 250, 0, 0, 0]))
+# input: [250, 0, 250, 0, 0, 0]
